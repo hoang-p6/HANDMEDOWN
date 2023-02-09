@@ -16,14 +16,6 @@ A full stack website using MongoDB, Express, React, and Node, written using Java
 
 ## **_Technologies Used_**
 
-- Item 1
-- Item 2
-  - Sub Item
-
-1. Item 1
-2. Item 2
-   - Sub Item
-
 ---
 
 ## **_Screenshots_**
