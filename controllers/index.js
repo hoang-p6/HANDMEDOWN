@@ -58,10 +58,23 @@ const createOffer = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 }
+const getOfferById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const listing = await Offer.findById(id)
+    if (listing) {
+      return res.status(200).json({ listing })
+    }
+    return res.status(404).send('Requested offer does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = {
   createListing,
   updateListing,
   getListingById,
   deleteListing,
-  createOffer
+  createOffer,
+  getOfferById
 }

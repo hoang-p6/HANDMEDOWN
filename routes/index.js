@@ -9,5 +9,6 @@ router.post('/listing', controllers.createListing)
 router.put('/listing/:id', controllers.updateListing)
 router.delete('/listing/:id', controllers.deleteListing)
 //Routes for Offers
-router.post('/listing', controllers.createOffer)
+router.post('/offer', controllers.createOffer)
+router.get('/offer/:id', controllers.getOfferById)
 module.exports = router
