@@ -1,6 +1,6 @@
 const Listing = require('../models/listing')
 const Offer = require('../models/offer')
-
+//Listing CRUD Operators
 const createListing = async (req, res) => {
   try {
     const listing = await new Listing(req.body)
@@ -46,9 +46,22 @@ const deleteListing = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+//Offer CRUD Operators
+const createOffer = async (req, res) => {
+  try {
+    const listing = await new Offer(req.body)
+    await listing.save()
+    return res.status(201).json({
+      listing
+    })
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
 module.exports = {
   createListing,
   updateListing,
   getListingById,
-  deleteListing
+  deleteListing,
+  createOffer
 }
