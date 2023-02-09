@@ -11,4 +11,4 @@ const Offer = new Schema(
   { timestamps: true }
 )
 
-modules.exports = mongoose.modelc('Offer', Offer)
+module.exports = mongoose.model('Offer', Offer)
