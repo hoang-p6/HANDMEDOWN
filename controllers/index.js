@@ -34,9 +34,21 @@ const updateListing = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-
+const deleteListing = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Listing.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Listing deleted')
+    }
+    throw new Error('Listing not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = {
   createListing,
   updateListing,
-  getListingById
+  getListingById,
+  deleteListing
 }
