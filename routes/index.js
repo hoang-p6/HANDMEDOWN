@@ -12,4 +12,5 @@ router.delete('/listing/:id', controllers.deleteListing)
 router.post('/offer', controllers.createOffer)
 router.get('/offer/:id', controllers.getOfferById)
 router.put('/offer/:id', controllers.updateOffer)
+router.delete('/offer/:id', controllers.deleteOffer)
 module.exports = router

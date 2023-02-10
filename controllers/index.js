@@ -80,6 +80,18 @@ const updateOffer = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+const deleteOffer = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Offer.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Offer deleted')
+    }
+    throw new Error('Offer not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = {
   createListing,
   updateListing,
@@ -87,5 +99,6 @@ module.exports = {
   deleteListing,
   createOffer,
   getOfferById,
-  updateOffer
+  updateOffer,
+  deleteOffer
 }
