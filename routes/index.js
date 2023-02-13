@@ -4,13 +4,15 @@ const controllers = require('../controllers')
 
 //Routes for Listings
 router.get('/', (req, res) => res.send('Home'))
-router.get('/listing/:id', controllers.getListingById)
-router.post('/listing', controllers.createListing)
-router.put('/listing/:id', controllers.updateListing)
-router.delete('/listing/:id', controllers.deleteListing)
+router.get('/listings', controllers.getAllListings)
+router.get('/listings/:id', controllers.getListingById)
+router.post('/listings', controllers.createListing)
+router.put('/listings/:id', controllers.updateListing)
+router.delete('/listings/:id', controllers.deleteListing)
 //Routes for Offers
-router.post('/offer', controllers.createOffer)
-router.get('/offer/:id', controllers.getOfferById)
-router.put('/offer/:id', controllers.updateOffer)
-router.delete('/offer/:id', controllers.deleteOffer)
+router.get('/offers', controllers.getAllOffers)
+router.post('/offers', controllers.createOffer)
+router.get('/offers/:id', controllers.getOfferById)
+router.put('/offers/:id', controllers.updateOffer)
+router.delete('/offers/:id', controllers.deleteOffer)
 module.exports = router

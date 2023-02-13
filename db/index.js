@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-
-let MONGODB_URI = 'mongodb://127.0.0.1:27017/listingsDatabase'
+require('dotenv').config()
+const MONGODBURI = process.env.MONGODB_URI
 
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODBURI)
   .then(() => {
     console.log('Successfully connected to MongoDB.')
   })

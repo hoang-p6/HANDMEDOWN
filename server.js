@@ -1,13 +1,18 @@
 const express = require('express')
 const routes = require('./routes')
 const db = require('./db')
-
+const logger = require('morgan')
+const cors = require('cors')
 const PORT = process.env.PORT || 3001
 
 const app = express()
 
-app.use(express.json())
+const { Listing } = require('./models/listing')
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(logger('dev'))
+app.use(cors())
 app.use('/', routes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'))

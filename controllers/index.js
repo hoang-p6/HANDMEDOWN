@@ -12,6 +12,14 @@ const createListing = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 }
+const getAllListings = async (req, res) => {
+  try {
+    const listings = await Listing.find()
+    return res.status(200).json({ listings })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const getListingById = async (req, res) => {
   try {
     const { id } = req.params
@@ -47,6 +55,14 @@ const deleteListing = async (req, res) => {
   }
 }
 //Offer CRUD Operators
+const getAllOffers = async (req, res) => {
+  try {
+    const offers = await Offer.find()
+    return res.status(200).json({ offers })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const createOffer = async (req, res) => {
   try {
     const listing = await new Offer(req.body)
@@ -93,10 +109,12 @@ const deleteOffer = async (req, res) => {
   }
 }
 module.exports = {
+  getAllListings,
   createListing,
   updateListing,
   getListingById,
   deleteListing,
+  getAllOffers,
   createOffer,
   getOfferById,
   updateOffer,
