@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const Form = (props) => {
+const Form = () => {
   const initialState = {
     seller: '',
     email: '',
@@ -21,7 +21,6 @@ const Form = (props) => {
     console.log(formState)
     await axios.post('http://localhost:3001/listings', formState)
     setFormState(initialState)
-    props.getListings()
   }
 
   return (
@@ -68,13 +67,6 @@ const Form = (props) => {
         onChange={handleChange}
         value={formState.price}
       ></input>
-      {/* <label htmlFor="sold">Sold:</label>
-      <input
-        id="sold"
-        type="boolean"
-        onChange={handleChange}
-        value={formState.sold}
-      ></input> */}
       <button type="submit">Add</button>
     </form>
   )

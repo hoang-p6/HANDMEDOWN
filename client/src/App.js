@@ -1,9 +1,13 @@
 import './App.css'
-import Form from './components/Form'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Form from './components/Form'
+import Nav from './components/Nav'
+import Home from './components/Home'
 
-function App() {
+function App(props) {
   const [listings, setListings] = useState([])
   const getListings = async () => {
     try {
@@ -12,7 +16,7 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-    console.log()
+    console.log(listings)
   }
 
   useEffect(() => {
@@ -20,9 +24,19 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <h1>Add Listing</h1>
-      <Form getListings={getListings} />
+    <div class="App">
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home listings={listings} getListings={getListings} />}
+          />
+          <Route path="/newlisting" element={<Form />} />
+        </Routes>
+      </main>
     </div>
   )
 }
