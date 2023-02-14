@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const Form = () => {
+const Form = (props) => {
   const initialState = {
     seller: '',
     email: '',
@@ -18,9 +18,10 @@ const Form = () => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(formState)
     await axios.post('http://localhost:3001/listings', formState)
+    console.log(formState)
     setFormState(initialState)
+    props.getListings()
   }
 
   return (

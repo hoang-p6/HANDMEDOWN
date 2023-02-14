@@ -7,16 +7,16 @@ import Form from './components/Form'
 import Nav from './components/Nav'
 import Home from './components/Home'
 
-function App(props) {
+function App() {
   const [listings, setListings] = useState([])
   const getListings = async () => {
     try {
       let res = await axios.get('http://localhost:3001/listings')
-      setListings(res.data)
+      setListings(res.data.listings)
     } catch (err) {
       console.log(err)
     }
-    console.log(listings)
+    console.log()
   }
 
   useEffect(() => {
@@ -24,16 +24,13 @@ function App(props) {
   }, [])
 
   return (
-    <div class="App">
+    <div className="App">
       <header>
         <Nav />
       </header>
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={<Home listings={listings} getListings={getListings} />}
-          />
+          <Route path="/" element={<Home listings={listings} />} />
           <Route path="/newlisting" element={<Form />} />
         </Routes>
       </main>

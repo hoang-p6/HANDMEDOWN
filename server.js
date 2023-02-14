@@ -14,7 +14,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(logger('dev'))
 app.use(cors())
 app.use('/', routes)
-
+app.get('/listings', async (req, res) => {
+  let listings = await Listing.find({})
+  res.send(listings)
+})
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))

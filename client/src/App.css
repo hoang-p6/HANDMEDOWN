@@ -12,3 +12,12 @@ form {
   width: 100vw;
   height: 60vh;
 }
+.listingCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 25px;
+}
+.card {
+  border: 2px solid black;
+  margin: 10px;
+}
