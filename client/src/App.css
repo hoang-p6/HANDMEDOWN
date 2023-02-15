@@ -16,8 +16,21 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 25px;
+  text-decoration: none;
 }
 .card {
   border: 2px solid black;
   margin: 10px;
+  text-decoration: none;
+}
+.card:hover {
+  border: 5px solid black;
+  margin: 10px;
+}
+.header {
+  background-color: rgb(145, 137, 145);
+}
+
+.nav {
+  color: green;
 }

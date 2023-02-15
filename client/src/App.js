@@ -6,6 +6,7 @@ import { Route } from 'react-router-dom'
 import Form from './components/Form'
 import Nav from './components/Nav'
 import Home from './components/Home'
+import Details from './components/Details'
 
 function App() {
   const [listings, setListings] = useState([])
@@ -16,7 +17,6 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-    console.log()
   }
 
   useEffect(() => {
@@ -25,13 +25,17 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className="header">
         <Nav />
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Home listings={listings} />} />
           <Route path="/newlisting" element={<Form />} />
+          <Route
+            path="/listings/:id"
+            element={<Details listings={listings} />}
+          />
         </Routes>
       </main>
     </div>
