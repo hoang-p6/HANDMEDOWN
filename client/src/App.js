@@ -7,6 +7,7 @@ import Form from './components/Form'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Details from './components/Details'
+import Edit from './components/Edit'
 
 function App() {
   const [listings, setListings] = useState([])
@@ -35,6 +36,10 @@ function App() {
           <Route
             path="/listings/:id"
             element={<Details listings={listings} />}
+          />
+          <Route
+            path="/listing/:id/edit"
+            element={<Edit listings={listings} getListings={getListings} />}
           />
         </Routes>
       </main>

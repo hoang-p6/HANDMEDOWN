@@ -14,7 +14,6 @@ const Details = (props) => {
   }, [props.listings])
   return (
     <div>
-      <div>{listing.item}</div>
       <h1>Item: {listing.item}</h1>
       <h2>Price: ${listing.price}</h2>
       <h3>Seller: {listing.seller}</h3>
