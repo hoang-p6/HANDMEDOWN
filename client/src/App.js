@@ -32,7 +32,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home listings={listings} />} />
-          <Route path="/newlisting" element={<Form />} />
+          <Route
+            path="/newlisting"
+            element={<Form getListings={getListings} />}
+          />
           <Route
             path="/listings/:id"
             element={<Details listings={listings} />}
