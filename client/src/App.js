@@ -11,15 +11,16 @@ import Edit from './components/Edit'
 
 function App() {
   const [listings, setListings] = useState([])
-  const getListings = async () => {
-    try {
-      let res = await axios.get('http://localhost:3001/listings')
-      setListings(res.data.listings)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  const [offers, setOffers] = useState([])
 
+  const getListings = async () => {
+    let res = await axios.get('http://localhost:3001/listings')
+    setListings(res.data.listings)
+  }
+  const getOffers = async () => {
+    let res = await axios.get('http://localhost:3001/offers')
+    setOffers(res.data.offers)
+  }
   useEffect(() => {
     getListings()
   }, [])
@@ -38,7 +39,14 @@ function App() {
           />
           <Route
             path="/listings/:id"
-            element={<Details listings={listings} />}
+            element={
+              <Details
+                listings={listings}
+                offers={offers}
+                setOffers={setOffers}
+                getOffers={getOffers}
+              />
+            }
           />
           <Route
             path="/listing/:id/edit"
