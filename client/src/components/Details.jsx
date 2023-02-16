@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import OfferForm from './OfferForm'
 
 const Details = (props) => {
   const [listing, setListing] = useState('')
@@ -21,6 +22,7 @@ const Details = (props) => {
       <h2>Email: {listing.email}</h2>
       <h2>Description:{listing.description}</h2>
       <h2>Sold:{listing.sold}</h2>
+      <OfferForm />
     </div>
   )
 }
