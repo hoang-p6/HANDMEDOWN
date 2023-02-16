@@ -15,6 +15,7 @@ const Details = (props) => {
   return (
     <div>
       <h1>Item: {listing.item}</h1>
+      <img src={listing.image} />
       <h2>Price: ${listing.price}</h2>
       <h3>Seller: {listing.seller}</h3>
       <h2>Email: {listing.email}</h2>

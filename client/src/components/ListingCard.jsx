@@ -1,13 +1,6 @@
-import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const ListingCard = (props) => {
-  let { id } = useParams()
-  const showListing = (listing) => {}
-  const deleteListing = async () => {
-    await axios.delete(`http://localhost:3001/listings/${id}`)
-    props.getListings()
-  }
   return (
     <div className="listingCards">
       {props.listings.map((listing) => (
@@ -16,6 +9,7 @@ const ListingCard = (props) => {
             <h1>Item: {listing.item}</h1>
             <h2>Price: ${listing.price}</h2>
             <h3>Seller: {listing.seller}</h3>
+            <img src={listing.image} />
             <h2>Sold:{listing.sold}</h2>
           </Link>
           <Link to={`listing/${listing._id}/edit`}>
