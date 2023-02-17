@@ -10,6 +10,7 @@ const Details = ({ listings, offers, setOffers, getOffers }) => {
 
   const selectListing = () => {
     let selectedListing = listings.find((listing) => listing._id === `${id}`)
+    console.log(selectedListing)
     return setListing(selectedListing)
   }
   const offerDelete = async (offerId) => {
@@ -30,16 +31,17 @@ const Details = ({ listings, offers, setOffers, getOffers }) => {
       <h2>Description:{listing.description}</h2>
       <h2>Sold:{listing.sold}</h2>
       <OfferForm offers={offers} setOffers={setOffers} getOffers={getOffers} />
-      {offers.map((offer) => (
-        <div key={offer._id} className="offer-section">
-          <h3>Buyer: {offer.buyer}</h3>
-          <h3>Email: {offer.email}</h3>
-          <h3>Offer: ${offer.offer}</h3>
-          <h3>Additional Comments: {offer.comments}</h3>
-          <button>Edit</button>
-          <button onClick={() => offerDelete(offer._id)}>Delete</button>
-        </div>
-      ))}
+      {offers &&
+        offers.map((offer) => (
+          <div key={offer._id} className="offer-section">
+            <h3>Buyer: {offer.buyer}</h3>
+            <h3>Email: {offer.email}</h3>
+            <h3>Offer: ${offer.offer}</h3>
+            <h3>Additional Comments: {offer.comments}</h3>
+            <button>Edit</button>
+            <button onClick={() => offerDelete(offer._id)}>Delete</button>
+          </div>
+        ))}
     </div>
   )
 }

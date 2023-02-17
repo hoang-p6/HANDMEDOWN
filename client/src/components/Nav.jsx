@@ -4,8 +4,20 @@ import '../App.css'
 const Nav = () => {
   return (
     <div className="nav">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/newlisting">Add Listing</NavLink>
+      {' '}
+      HANDMEDOWN
+      <NavLink to="/" className="navlinks">
+        <span className="material-symbols-outlined" id="navs">
+          Home
+        </span>
+        Home
+      </NavLink>
+      <NavLink to="/newlisting" className="navlinks">
+        <span className="material-symbols-outlined" id="navs">
+          add_box
+        </span>
+        Add
+      </NavLink>
     </div>
   )
 }
