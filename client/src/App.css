@@ -44,6 +44,11 @@ body {
   font-size: 20px;
   /* border: 2px solid white; */
 }
+img {
+  width: 20vw;
+  height: 30vh;
+  object-fit: contain;
+}
 #navs {
   display: flex;
   align-items: center;
