@@ -10,10 +10,11 @@ const ListingCard = (props) => {
             <h2>Price: ${listing.price}</h2>
             <h3>Seller: {listing.seller}</h3>
             <img src={listing.image} />
-            <h2>Sold:{listing.sold}</h2>
             <Link to={`listing/${listing._id}/edit`}>
               <button className="edit-button">
-                <span class="material-symbols-outlined">edit_square</span>
+                <span className="material-symbols-outlined" id="edit">
+                  edit_square
+                </span>
               </button>
             </Link>
           </div>

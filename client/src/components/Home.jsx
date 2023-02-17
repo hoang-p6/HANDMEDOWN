@@ -1,9 +1,9 @@
 import ListingCard from './ListingCard'
-const Home = (props) => {
+const Home = ({ listings, getListings }) => {
   return (
     <div>
       <h1>Listings</h1>
-      <ListingCard listings={props.listings} getListings={props.getListings} />
+      <ListingCard listings={listings} getListings={getListings} />
     </div>
   )
 }

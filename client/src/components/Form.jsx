@@ -26,6 +26,7 @@ const Form = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>ADD A NEW LISTING</h1>
       <label htmlFor="seller">Seller:</label>
       <input
         id="seller"

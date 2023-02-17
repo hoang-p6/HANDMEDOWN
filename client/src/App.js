@@ -10,9 +10,8 @@ import Details from './components/Details'
 import Edit from './components/Edit'
 
 function App() {
-  const [listings, setListings] = useState([])
   const [offers, setOffers] = useState([])
-
+  const [listings, setListings] = useState([])
   const getListings = async () => {
     let res = await axios.get('http://localhost:3001/listings')
     setListings(res.data.listings)
@@ -21,6 +20,7 @@ function App() {
     let res = await axios.get('http://localhost:3001/offers')
     setOffers(res.data.offers)
   }
+
   useEffect(() => {
     getListings()
   }, [])
@@ -32,7 +32,10 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home listings={listings} />} />
+          <Route
+            path="/"
+            element={<Home listings={listings} getListings={getListings} />}
+          />
           <Route
             path="/newlisting"
             element={<Form getListings={getListings} />}
@@ -45,12 +48,15 @@ function App() {
                 offers={offers}
                 setOffers={setOffers}
                 getOffers={getOffers}
+                getListings={getListings}
               />
             }
           />
           <Route
             path="/listing/:id/edit"
-            element={<Edit listings={listings} getListings={getListings} />}
+            element={
+              <Edit listings={listings} getListings={() => getListings()} />
+            }
           />
         </Routes>
       </main>

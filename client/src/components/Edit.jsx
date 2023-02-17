@@ -3,11 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Edit = (props) => {
+const Edit = ({ getListings, listings }) => {
   let { id } = useParams()
   const [formState, setFormState] = useState('')
 
-  let foundListing = props.listings.filter((listing) => {
+  let foundListing = listings.filter((listing) => {
     return listing._id === id
   })
   const findListing = () => {
@@ -32,7 +32,7 @@ const Edit = (props) => {
     foundListing[0] = updatedListing
     setFormState('')
     navigate(`/listings/${id}`)
-    props.getListings()
+    getListings()
   }
   const handleDelete = async (event) => {
     event.preventDefault()
@@ -48,10 +48,11 @@ const Edit = (props) => {
     foundListing[0] = updatedListing
     setFormState('')
     navigate(`/`)
-    props.getListings()
+    getListings()
   }
   useEffect(() => {
     findListing()
+    getListings()
   }, [])
   return (
     <div>

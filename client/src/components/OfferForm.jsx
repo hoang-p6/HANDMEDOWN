@@ -22,19 +22,14 @@ const OfferForm = ({ offers, setOffers, getOffers }) => {
     setFormState(initialState)
     getOffers()
   }
-  // const handleDelete = async (event) => {
-  //   event.preventDefault()
-  //   await axios.delete(
-  //     `http://localhost:3001/offers/63ee48ceeb159038751af2de`,
-  //     formState
-  //   )
-  // }
-  // useEffect(() => {
-  //   getOffers()
-  // }, [])
+
   return (
     <form onSubmit={handleSubmit}>
+      <h1>OFFERS</h1>
       <label htmlFor="buyer">Buyer:</label>
+      {/*<label htmlFor="email">Email:</label>
+      <label htmlFor="offer">Offer:</label> 
+      <label htmlFor="comments">Additional Comments:</label>*/}
       <input
         id="buyer"
         type="text"
@@ -62,7 +57,6 @@ const OfferForm = ({ offers, setOffers, getOffers }) => {
         onChange={handleChange}
         value={formState.comments}
       ></input>
-
       <button type="submit">Add</button>
     </form>
   )
