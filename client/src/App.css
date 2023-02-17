@@ -20,11 +20,15 @@ form {
 }
 .cardKey {
   text-decoration: none;
+  color: black;
 }
 .card {
-  border: 2px solid black;
   margin: 10px;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 20px;
   text-decoration: none;
+  background-color: white;
 }
 .card:hover {
   border: 5px solid black;
