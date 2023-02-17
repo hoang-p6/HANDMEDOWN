@@ -1,7 +1,7 @@
 body {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   margin: 0;
-  text-align: center;
+  background-image: url('https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg');
 }
 
 /* Listing Cards and Home Screen */
@@ -9,10 +9,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 25px;
+  text-align: center;
 }
 .cardKey {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .card {
   margin: 10px;
@@ -20,22 +21,23 @@ body {
   border: 2px solid black;
   padding: 20px;
   text-decoration: none;
-  background-color: white;
+  background-color: black;
   height: 60vh;
 }
 .card:hover {
-  border: 5px solid black;
-  margin: 10px;
+  margin: 11px;
+  box-shadow: 2px 2px 5px 5px rgb(242, 242, 105);
 }
 
 .header {
   background-color: rgb(0, 0, 0);
   color: white;
-  height: 15vh;
+  height: 9vh;
 }
 
 .navlinks {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: end;
   align-items: center;
   padding: 5px;
@@ -45,9 +47,10 @@ body {
   /* border: 2px solid white; */
 }
 img {
+  border-radius: 25px;
   width: 20vw;
   height: 30vh;
-  object-fit: contain;
+  object-fit: cover;
 }
 #navs {
   display: flex;
@@ -57,21 +60,22 @@ img {
 }
 
 .nav {
-  font-size: 50px;
+  font-size: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 /* Forms */
-form {
+.edit-form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 60vh;
+  height: 50vh;
 }
+
 label {
   display: flex;
   justify-content: start;
@@ -80,4 +84,29 @@ label {
 input {
   display: flex;
   justify-content: center;
+}
+/* Details */
+.details-container {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 50vh 50vh;
+  grid-template-areas:
+    'one two'
+    'three four';
+}
+.details-image {
+  grid-area: one;
+  border-radius: 25px;
+  width: 40vw;
+  height: 50vh;
+  object-fit: cover;
+}
+.details-section {
+  grid-area: one;
+}
+.offerForm {
+  grid-area: two;
+}
+.offer-section {
+  grid-area: four;
 }

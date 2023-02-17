@@ -22,14 +22,13 @@ A full stack website using MongoDB, Express, React, and Node, written using Java
 
 ![Imgur](https://i.imgur.com/tk07LQj.png)
 ![Imgur](https://i.imgur.com/7FVZZjk.png)
+![Imgur](https://i.imgur.com/l0TdETL.png)
 
 # **_Updates_**
 
-- [ ] Created frontend
-- [ ] Created backend
+- [x] Created frontend
+- [x] Created backend
 
 ---
 
 ## _Credits_
-
-Images: []

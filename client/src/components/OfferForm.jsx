@@ -24,8 +24,8 @@ const OfferForm = ({ offers, setOffers, getOffers }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>OFFERS</h1>
+    <form onSubmit={handleSubmit} className="offerForm">
+      <h1>MAKE AN OFFER</h1>
       <label htmlFor="buyer">Buyer:</label>
       {/*<label htmlFor="email">Email:</label>
       <label htmlFor="offer">Offer:</label> 

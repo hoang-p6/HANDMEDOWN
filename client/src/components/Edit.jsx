@@ -57,7 +57,7 @@ const Edit = ({ getListings, listings }) => {
   }, [])
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="edit-form">
         <label htmlFor="seller">Seller:</label>
         <input
           id="seller"
@@ -101,8 +101,10 @@ const Edit = ({ getListings, listings }) => {
           value={formState.price}
         ></input>
         <button type="submit">Save Changes</button>
+        <button onClick={handleDelete} className="edit-form-delete">
+          Delete Listing
+        </button>
       </form>
-      <button onClick={handleDelete}>Delete Listing</button>
     </div>
   )
 }
