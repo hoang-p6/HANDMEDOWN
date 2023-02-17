@@ -5,6 +5,8 @@ import axios from 'axios'
 
 const Edit = ({ getListings, listings }) => {
   let { id } = useParams()
+  let navigate = useNavigate()
+
   const [formState, setFormState] = useState('')
 
   let foundListing = listings.filter((listing) => {
@@ -17,7 +19,7 @@ const Edit = ({ getListings, listings }) => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
-  let navigate = useNavigate()
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     let updatedListing = {
@@ -52,7 +54,6 @@ const Edit = ({ getListings, listings }) => {
   }
   useEffect(() => {
     findListing()
-    getListings()
   }, [])
   return (
     <div>

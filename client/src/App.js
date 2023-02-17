@@ -54,9 +54,7 @@ function App() {
           />
           <Route
             path="/listing/:id/edit"
-            element={
-              <Edit listings={listings} getListings={() => getListings()} />
-            }
+            element={<Edit listings={listings} getListings={getListings} />}
           />
         </Routes>
       </main>
