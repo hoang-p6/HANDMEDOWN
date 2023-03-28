@@ -33,6 +33,6 @@ A full stack website using MongoDB, Express, React, and Node, written using Java
 
 ## _Credits_
 
-[Icons](https://fonts.google.com/icons)
-[Fonts](https://fonts.google.com/)
+[Icons](https://fonts.google.com/icons)|
+[Fonts](https://fonts.google.com/)|
 [Image-Styling](https://www.freepik.com/free-photos-vectors/wallpaper-pattern)

@@ -18,14 +18,14 @@ const Form = (props) => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await axios.post('http://localhost:3001/listings', formState)
+    await axios.post('/listings', formState)
     console.log(formState)
     setFormState(initialState)
     props.getListings()
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="listing-form">
       <h1>ADD A NEW LISTING</h1>
       <label htmlFor="seller">Seller:</label>
       <input
@@ -56,12 +56,13 @@ const Form = (props) => {
         value={formState.image}
       ></input>
       <label htmlFor="description">Description:</label>
-      <input
+      <textarea
         id="description"
-        type="text"
+        cols="30"
+        rows="10"
         onChange={handleChange}
         value={formState.description}
-      ></input>
+      ></textarea>
       <label htmlFor="price">Price:</label>
       <input
         id="price"

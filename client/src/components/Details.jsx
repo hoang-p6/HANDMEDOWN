@@ -12,7 +12,7 @@ const Details = ({ listings, offers, setOffers, getOffers }) => {
     setListing(listings.find((listing) => listing._id === `${id}`))
   }
   const offerDelete = async (offerId) => {
-    await axios.delete(`http://localhost:3001/offers/${offerId}`)
+    await axios.delete(`/offers/${offerId}`)
     getOffers()
   }
   useEffect(() => {

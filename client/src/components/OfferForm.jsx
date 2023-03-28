@@ -17,10 +17,10 @@ const OfferForm = ({ offers, setOffers, getOffers }) => {
   }
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await axios.post('http://localhost:3001/offers', formState)
+    await axios.post('/offers', formState)
     console.log(formState)
     setFormState(initialState)
-    getOffers()
+    // getOffers()
   }
 
   return (

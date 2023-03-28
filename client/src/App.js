@@ -13,11 +13,11 @@ function App() {
   const [offers, setOffers] = useState([])
   const [listings, setListings] = useState([])
   const getListings = async () => {
-    let res = await axios.get('http://localhost:3001/listings')
+    let res = await axios.get('/listings')
     setListings(res.data.listings)
   }
   const getOffers = async () => {
-    let res = await axios.get('http://localhost:3001/offers')
+    let res = await axios.get('/offers')
     setOffers(res.data.offers)
   }
 

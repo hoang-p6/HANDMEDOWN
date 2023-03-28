@@ -21,7 +21,7 @@ body {
   border: 2px solid black;
   padding: 20px;
   text-decoration: none;
-  background-color: black;
+  background-color: rgb(53, 49, 49);
   height: 60vh;
 }
 .card:hover {
@@ -75,7 +75,14 @@ img {
   width: 100vw;
   height: 50vh;
 }
-
+.listing-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+}
 label {
   display: flex;
   justify-content: start;
