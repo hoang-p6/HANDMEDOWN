@@ -10,15 +10,12 @@ import Details from './components/Details'
 import Edit from './components/Edit'
 
 function App() {
+  const BASE_URL = 'http://localhost:3001'
   const [offers, setOffers] = useState([])
   const [listings, setListings] = useState([])
   const getListings = async () => {
-    let res = await axios.get('/listings')
+    let res = await axios.get(`${BASE_URL}/listings`)
     setListings(res.data.listings)
-  }
-  const getOffers = async () => {
-    let res = await axios.get('/offers')
-    setOffers(res.data.offers)
   }
 
   useEffect(() => {
@@ -42,15 +39,7 @@ function App() {
           />
           <Route
             path="/listings/:id"
-            element={
-              <Details
-                listings={listings}
-                offers={offers}
-                setOffers={setOffers}
-                getOffers={getOffers}
-                getListings={getListings}
-              />
-            }
+            element={<Details listings={listings} getListings={getListings} />}
           />
           <Route
             path="/listing/:id/edit"

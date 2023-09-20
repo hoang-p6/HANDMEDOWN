@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import OfferForm from './OfferForm'
 import axios from 'axios'
+const BASE_URL = 'http://localhost:3001'
 
-const Details = ({ listings, offers, setOffers, getOffers }) => {
+const Details = ({ listings }) => {
   const [listing, setListing] = useState(listings)
 
   const { id } = useParams()
@@ -11,13 +11,9 @@ const Details = ({ listings, offers, setOffers, getOffers }) => {
   const selectListing = () => {
     setListing(listings.find((listing) => listing._id === `${id}`))
   }
-  const offerDelete = async (offerId) => {
-    await axios.delete(`/offers/${offerId}`)
-    getOffers()
-  }
+
   useEffect(() => {
     selectListing()
-    getOffers()
   }, [listings])
   return (
     <>
@@ -32,25 +28,6 @@ const Details = ({ listings, offers, setOffers, getOffers }) => {
               <h2>Email: {listing.email}</h2>
               <h2>Description: {listing.description}</h2>
             </div>
-            <OfferForm
-              offers={offers}
-              setOffers={setOffers}
-              getOffers={getOffers}
-            />
-            {offers &&
-              offers.map((offer) => (
-                <div key={offer._id} className="offer-section">
-                  {' '}
-                  <h1>OFFERS</h1>
-                  <h3>Buyer: {offer.buyer}</h3>
-                  <h3>Email: {offer.email}</h3>
-                  <h3>Offer: ${offer.offer}</h3>
-                  <h3>Additional Comments: {offer.comments}</h3>
-                  <button onClick={() => offerDelete(offer._id)}>
-                    Delete Offer
-                  </button>
-                </div>
-              ))}
           </div>
         )}
       </div>

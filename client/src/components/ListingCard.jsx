@@ -4,8 +4,12 @@ const ListingCard = (props) => {
   return (
     <div className="listingCards">
       {props.listings.map((listing) => (
-        <Link to={`listings/${listing._id}`} className="cardKey">
-          <div key={listing._id} className="card">
+        <Link
+          to={`/listings/${listing._id}`}
+          className="cardKey"
+          key={listing._id}
+        >
+          <div className="card">
             <h1>Item: {listing.item}</h1>
             <h2>Price: ${listing.price}</h2>
             <h3>Seller: {listing.seller}</h3>
