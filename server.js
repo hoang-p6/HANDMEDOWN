@@ -28,9 +28,3 @@ app.get('/listings', async (req, res) => {
 })
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
-
-//heroku deployment
-// app.use(express.static(`${__dirname}/client/build`))
-// app.get('/*', (req, res) => {
-//   res.sendFile(`${__dirname}/client/build/index.html`)
-// })

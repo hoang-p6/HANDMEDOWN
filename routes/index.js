@@ -7,7 +7,7 @@ const {
   updateListing,
   deleteListing
 } = require('../controllers/listingController')
-const { Signup } = require('../controllers/authController')
+const { Signup, Login } = require('../controllers/authController')
 
 //Routes for Listings
 router.get('/', (req, res) => res.send('Home'))
@@ -19,4 +19,5 @@ router.delete('/listings/:id', deleteListing)
 
 //Routers for Authentication
 router.post('/signup', Signup)
+router.get('/login', Login)
 module.exports = router
