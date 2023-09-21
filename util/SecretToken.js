@@ -6,4 +6,6 @@ const createSecretToken = (id) => {
     expiresIn: 3 * 24 * 60 * 60
   })
 }
-module.exports = {}
+module.exports = {
+  createSecretToken
+}
