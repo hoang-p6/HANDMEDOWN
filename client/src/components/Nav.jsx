@@ -7,16 +7,19 @@ const Nav = () => {
       <div className="nav">
         HANDMEDOWN
         <NavLink to="/" className="navlinks">
-          <span className="material-symbols-outlined" id="navs">
+          {/* <span className="material-symbols-outlined" id="navs">
             Home
-          </span>
+          </span> */}
           Home
         </NavLink>
-        <NavLink to="/newlisting" className="navlinks">
+        {/* <NavLink to="/newlisting" className="navlinks">
           <span className="material-symbols-outlined" id="navs">
             add_box
           </span>
           Add
+        </NavLink> */}
+        <NavLink to="/login" className="navlinks">
+          Log In
         </NavLink>
       </div>
     </div>

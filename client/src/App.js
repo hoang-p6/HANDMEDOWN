@@ -3,11 +3,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
-import Form from './components/Form'
+import ListingForm from './components/ListingForm'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Details from './components/Details'
 import Edit from './components/Edit'
+import Signup from './components/Signup'
+import Login from './components/Login'
 
 function App() {
   const BASE_URL = 'http://localhost:3001'
@@ -33,9 +35,11 @@ function App() {
             path="/"
             element={<Home listings={listings} getListings={getListings} />}
           />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/newlisting"
-            element={<Form getListings={getListings} />}
+            element={<ListingForm getListings={getListings} />}
           />
           <Route
             path="/listings/:id"

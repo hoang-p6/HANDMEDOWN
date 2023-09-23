@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const Form = (props) => {
+const ListingForm = (props) => {
   const initialState = {
     seller: '',
     email: '',
@@ -75,4 +75,4 @@ const Form = (props) => {
   )
 }
 
-export default Form
+export default ListingForm
