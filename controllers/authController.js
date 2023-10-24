@@ -35,6 +35,7 @@ const Signup = async (req, res) => {
 
 const Login = async (req, res) => {
   try {
+    console.log(req.body)
     const { email, password } = req.body
     if (!email || !password) {
       return res.json({ message: 'All fields are required!' })
@@ -48,7 +49,6 @@ const Login = async (req, res) => {
       return res.json({ message: 'Incorrect email or password' })
     }
     const token = createSecretToken(user._id)
-
     res.cookie('token', token, {
       withCredentials: true,
       httpOnly: false

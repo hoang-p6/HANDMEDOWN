@@ -1,10 +1,12 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import ListingForm from './components/ListingForm'
-import Nav from './components/Nav'
+import Navigation from './components/Nav'
 import Home from './components/Home'
 import Details from './components/Details'
 import Edit from './components/Edit'
@@ -13,7 +15,6 @@ import Login from './components/Login'
 
 function App() {
   const BASE_URL = 'http://localhost:3001'
-  const [offers, setOffers] = useState([])
   const [listings, setListings] = useState([])
   const getListings = async () => {
     let res = await axios.get(`${BASE_URL}/listings`)
@@ -27,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <Nav />
+        <Navigation />
       </header>
       <main>
         <Routes>

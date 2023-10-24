@@ -1,29 +1,32 @@
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import NavBar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 import '../App.css'
 
-const Nav = () => {
+const Navigation = () => {
   return (
-    <div>
-      <div className="nav">
-        HANDMEDOWN
-        <NavLink to="/" className="navlinks">
-          {/* <span className="material-symbols-outlined" id="navs">
-            Home
-          </span> */}
-          Home
-        </NavLink>
-        {/* <NavLink to="/newlisting" className="navlinks">
-          <span className="material-symbols-outlined" id="navs">
-            add_box
-          </span>
-          Add
-        </NavLink> */}
-        <NavLink to="/login" className="navlinks">
+    <NavBar
+      fixed="top"
+      style={{
+        padding: '.8rem',
+        display: 'flex',
+        'justify-content': 'space-between',
+        backgroundColor: 'white',
+        boxShadow: '0px 2px 10px -6px rgba(0, 0, 0, 1)'
+      }}
+    >
+      <NavBar.Brand href="/">HANDMEDOWN</NavBar.Brand>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <Nav.Link as={NavLink} to="/login" className="login p-2">
           Log In
-        </NavLink>
+        </Nav.Link>
+        <Nav.Link as={NavLink} to="/signup" className="signup p-2">
+          Sign Up
+        </Nav.Link>
       </div>
-    </div>
+    </NavBar>
   )
 }
 
-export default Nav
+export default Navigation

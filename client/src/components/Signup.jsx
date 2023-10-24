@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const Signup = () => {
   const navigate = useNavigate()
@@ -34,11 +36,12 @@ const Signup = () => {
         formValues,
         { withCredentials: true }
       )
+      setFormValues(initialState)
+      navigate('/login')
 
       const { success, message } = data
       if (success) {
         handleSuccess(message)
-        navigate('/login')
         return data
       } else {
         handleError(message)
@@ -46,11 +49,10 @@ const Signup = () => {
     } catch (error) {
       console.log(error)
     }
-    setFormValues(initialState)
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="first">First</label>
         <input
           type="text"
@@ -92,8 +94,9 @@ const Signup = () => {
           required
           onChange={handleChange}
         ></input>
-        <button type="submit">Create Account</button>
-      </form>
+        <Button type="submit">Create Account</Button>
+      </Form>
+      {/* <ToastContainer></ToastContainer> */}
     </div>
   )
 }
