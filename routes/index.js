@@ -1,4 +1,6 @@
 const { Router } = require('express')
+const middleware = require('../middleware')
+const controller = require('../controllers/authController')
 const router = Router()
 const {
   getAllListings,
@@ -20,4 +22,16 @@ router.delete('/listings/:id', deleteListing)
 //Routers for Authentication
 router.post('/signup', Signup)
 router.post('/login', Login)
+router.put(
+  '/update/:user_id',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.UpdatePassword
+)
+router.get(
+  '/session',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.CheckSession
+)
 module.exports = router
