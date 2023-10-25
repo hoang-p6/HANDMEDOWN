@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS)
-const TOKEN_KEY = process.env.TOKEN_KEY
+const APP_SECRET = process.env.APP_SECRET
 
 const hashPassword = async (password) => {
   let hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
@@ -16,7 +16,7 @@ const comparePassword = async (storedPassword, password) => {
 }
 
 const createToken = (payload) => {
-  let token = jwt.sign(payload, TOKEN_KEY)
+  let token = jwt.sign(payload, APP_SECRET)
   return token
 }
 
@@ -36,7 +36,7 @@ const stripToken = (req, res, next) => {
 const verifyToken = (req, res, next) => {
   const { token } = res.locals
   try {
-    let payload = jwt.verify(token, TOKEN_KEY)
+    let payload = jwt.verify(token, APP_SECRET)
     if (payload) {
       res.locals.payload = payload
       return next()

@@ -1,7 +1,6 @@
-const { Router } = require('express')
 const middleware = require('../middleware')
 const controller = require('../controllers/authController')
-const router = Router()
+const router = require('express').Router()
 const {
   getAllListings,
   getListingById,

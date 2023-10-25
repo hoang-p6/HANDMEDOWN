@@ -7,12 +7,13 @@ import 'boxicons'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import FormLabel from 'react-bootstrap/FormLabel'
+import { LoginUser } from '../services/Auth'
 
-const Login = () => {
-  // const initialState = {
-  //   email: '',
-  //   password: ''
-  // }
+const Login = ({ setUser }) => {
+  const initialState = {
+    email: '',
+    password: ''
+  }
   const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     email: '',
@@ -31,28 +32,31 @@ const Login = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      const { data } = await axios.post(
-        'http://localhost:3001/login',
-        formValues,
-        {
-          withCredentials: true
-        }
-      )
-      // console.log(data)
-      // const { success, message } = data
-      // console.log(success)
-      // if (success) {
-      //   handleSuccess(message)
-      //   setTimeout(() => {
-      //     navigate('/')
-      //   }, 1000)
-      // } else {
-      //   handleError(message)
-      // }
-    } catch (error) {
-      console.log(error)
-    }
+    const payload = await LoginUser(formValues)
+    setFormValues(initialState)
+    setUser(payload)
+    // try {
+    //   const { data } = await axios.post(
+    //     'http://localhost:3001/login',
+    //     formValues,
+    //     {
+    //       withCredentials: true
+    //     }
+    //   )
+    // console.log(data)
+    // const { success, message } = data
+    // console.log(success)
+    // if (success) {
+    //   handleSuccess(message)
+    //   setTimeout(() => {
+    //     navigate('/')
+    //   }, 1000)
+    // } else {
+    //   handleError(message)
+    // }
+    // } catch (error) {
+    //   console.log(error)
+    // }
     // setFormValues({
     //   ...formValues,
     //   initialState

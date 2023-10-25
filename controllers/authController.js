@@ -1,33 +1,20 @@
 const User = require('../models/user')
-const { createSecretToken } = require('../util/SecretToken')
-const bcrypt = require('bcrypt')
-const middleware = '../middleware'
+const middleware = require('../middleware')
 
 const Signup = async (req, res) => {
   try {
-    const { firstName, lastName, username, email, password, createdAt } =
-      req.body
-    const existingUser = await User.findOne({ email })
-    if (existingUser) {
-      return res.json({
-        message: 'This email is already associated with an existing account'
-      })
-    }
+    const { email, password, firstName, lastName, username } = req.body
     let passwordDigest = await middleware.hashPassword(password)
     const user = await User.create({
       firstName,
       lastName,
-      username,
       email,
-      password,
-      createdAt
+      username,
+      passwordDigest
     })
     res.send(user)
-    res
-      .status(201)
-      .json({ message: 'Account created successfully', success: true, user })
   } catch (error) {
-    throw error
+    res.status(500).json({ error: 'Internal Server Error' })
   }
 }
 const getUserById = async (req, res) => {

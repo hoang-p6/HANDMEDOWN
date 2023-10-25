@@ -20,14 +20,14 @@ const Home = ({ listings, getListings }) => {
         {},
         { withCredentials: true }
       )
-      const { status, user } = data
-      setUsername(user)
-      console.log(cookies)
-      return status
-        ? toast(`Hello ${user}`, {
-            position: 'top-right'
-          })
-        : (removeCookie('token'), navigate('/login'))
+      // const { status, user } = data
+      // setUsername(user)
+      // console.log(cookies)
+      // return status
+      //   ? toast(`Hello ${user}`, {
+      //       position: 'top-right'
+      //     })
+      //   : (removeCookie('token'), navigate('/login'))
     }
     verifyCookie()
   }, [cookies, navigate, removeCookie])
