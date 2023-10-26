@@ -6,7 +6,7 @@ const ListingCard = (props) => {
   return (
     <div
       className="row row-cols-md-5"
-      style={{ display: 'flex', 'justify-content': 'center', margin: 0 }}
+      style={{ display: 'flex', justifyContent: 'center', margin: 0 }}
     >
       {props.listings.map((listing) => (
         <Card

@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 import FormLabel from 'react-bootstrap/FormLabel'
 import { LoginUser } from '../services/Auth'
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, user }) => {
   const initialState = {
     email: '',
     password: ''
@@ -35,28 +35,20 @@ const Login = ({ setUser }) => {
     const payload = await LoginUser(formValues)
     setFormValues(initialState)
     setUser(payload)
-    // try {
-    //   const { data } = await axios.post(
-    //     'http://localhost:3001/login',
-    //     formValues,
-    //     {
-    //       withCredentials: true
-    //     }
-    //   )
-    // console.log(data)
-    // const { success, message } = data
-    // console.log(success)
-    // if (success) {
-    //   handleSuccess(message)
-    //   setTimeout(() => {
-    //     navigate('/')
-    //   }, 1000)
-    // } else {
-    //   handleError(message)
-    // }
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      const { data } = await axios.post(
+        'http://localhost:3001/login',
+        formValues
+        // ,
+        // {
+        //   withCredentials: true
+        // }
+      )
+      console.log(user)
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+    }
     // setFormValues({
     //   ...formValues,
     //   initialState

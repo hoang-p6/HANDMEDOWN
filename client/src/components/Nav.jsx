@@ -11,7 +11,7 @@ const Navigation = () => {
       style={{
         padding: '.8rem',
         display: 'flex',
-        'justify-content': 'space-between',
+        justifyContent: 'space-between',
         backgroundColor: 'white',
         boxShadow: '0px 2px 10px -6px rgba(0, 0, 0, 1)'
       }}

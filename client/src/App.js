@@ -17,6 +17,10 @@ import { BASE_URL } from './services/api'
 function App() {
   const [listings, setListings] = useState([])
   const [user, setUser] = useState(null)
+  const getUserById = async () => {
+    let res = await axios.get(`${BASE_URL}/${user.id}`)
+    console.log(res)
+  }
   const getListings = async () => {
     let res = await axios.get(`${BASE_URL}/listings`)
     setListings(res.data.listings)
@@ -41,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <Navigation handleLogout={handleLogout} />
+        <Navigation handleLogout={handleLogout} user={user} />
       </header>
       <main>
         <Routes>
@@ -50,7 +54,10 @@ function App() {
             element={<Home listings={listings} getListings={getListings} />}
           />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route
+            path="/login"
+            element={<Login setUser={setUser} user={user} />}
+          />
           <Route
             path="/newlisting"
             element={<ListingForm getListings={getListings} />}

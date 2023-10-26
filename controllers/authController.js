@@ -19,9 +19,10 @@ const Signup = async (req, res) => {
 }
 const getUserById = async (req, res) => {
   try {
-    const { id } = req.params
-    const user = await User.findById(id)
-    if (user) {
+    const { user_id } = req.params
+    const user = await User.findById(user_id)
+    res.send(user)
+    if (!user) {
       return res.status(201).send('User with the specified ID does not exist')
     }
   } catch (error) {
@@ -39,30 +40,24 @@ const Login = async (req, res) => {
       user.passwordDigest,
       password
     )
+    if (!email || !password) {
+      return res.json({ message: 'All fields are required!' })
+    }
+    if (!user) {
+      return res.json({ message: 'Incorrect email or password' })
+    }
+    if (!matched) {
+      return res.json({ message: 'Incorrect email or password' })
+    }
     if (matched) {
       let payload = { id: user.id, email: user.email }
       let token = middleware.createToken(payload)
-      return res.send({ user: payload, token })
+      return res.send({
+        user: payload,
+        token
+      })
     }
     res.status(401).send({ status: 'Error', msg: 'Incorrect Password' })
-
-    // if (!email || !password) {
-    //   return res.json({ message: 'All fields are required!' })
-    // }
-    // const user = await User.findOne({ email })
-    // if (!user) {
-    //   return res.json({ message: 'Incorrect email or password' })
-    // }
-    // const auth = await bcrypt.compare(password, user.password)
-    // if (!auth) {
-    //   return res.json({ message: 'Incorrect email or password' })
-    // }
-    // const token = createSecretToken(user._id)
-    // res.cookie('token', token, {
-    //   withCredentials: true,
-    //   httpOnly: false
-    // })
-    // res.status(201).json({ message: 'User logged in successfully' })
   } catch (error) {
     console.error(error)
     res

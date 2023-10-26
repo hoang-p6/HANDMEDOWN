@@ -33,4 +33,5 @@ router.get(
   middleware.verifyToken,
   controller.CheckSession
 )
+router.get('/:user_id', controller.getUserById)
 module.exports = router
